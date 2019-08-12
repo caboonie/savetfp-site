@@ -38,7 +38,7 @@ def admin():
 		events.sort(key=lambda x:x.start)
 		return render_template('admin.html', members=query_members(), imgs=query_images(), events=events) 
 	else:
-		flask("please login to view that page")
+		flash("please login to view that page")
 		return render_template('login.html')
 
 @app.route('/login', methods=["POST"])
@@ -47,7 +47,7 @@ def login():
 		login_session['logged-in'] = True;
 		return redirect("/admin")
 	else:
-		flask("incorrect username or password")
+		flash("incorrect username or password")
 		return render_template('login.html')
 
 

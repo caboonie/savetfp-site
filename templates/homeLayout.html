@@ -7,6 +7,24 @@
   <h1>SaveTFP Events</h1>
 </div>
 
+<style type="text/css">
+  img{
+    object-fit: cover;
+    margin: auto;
+  }
+  .flip-card-front{
+    overflow: hidden;
+    text-align: center;
+  }
+  .flip-card-back{
+    overflow: hidden;
+    text-align: center;
+  }
+  @media screen and (max-width: 600px) {
+  .row {   
+    flex-direction: column;
+  }
+</style>
 
 
 <!-- The flexible grid (content) -->
@@ -19,7 +37,7 @@
           <div class="flip-card-inner">
             <div class="flip-card-front">
               
-                <img width="100%" src="{{imgs[(i*12)%(imgs|length)].filename}}">
+                <img width='100%' src="{{imgs[(i*12)%(imgs|length)].filename}}">
             </div>
             <div class="flip-card-back">
                 <img width="100%" src="{{imgs[(i*12+1)%(imgs|length)].filename}}">

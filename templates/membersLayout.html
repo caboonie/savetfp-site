@@ -6,6 +6,8 @@
 <style type="text/css">
   .row{
     justify-content: space-around;
+    align-content: space-around;
+    align-items: flex-start;
   }
   .bio{
     min-width: 200px;
@@ -17,13 +19,23 @@
   
   .fakeimg {
     background-color: #aaa;
-    padding: 10px;
+    padding: 4%;
     text-align: center;
     float: left;
     border-radius: 50%;
     width: 80%;
     margin: auto;
+    overflow: hidden;
   }
+
+
+  #main {
+  display: -webkit-flex; /* Safari */
+  -webkit-flex-flow: row-reverse wrap; /* Safari 6.1+ */
+  display: flex;
+  flex-flow: row-reverse wrap;
+  justify-content:space-around;
+}
 </style>
 
 <!-- Header -->
@@ -32,9 +44,9 @@
 </div>
 
 
-
+<br>
 <!-- The flexible grid (content) -->
-<div class="row">
+<div id="main">
   {% for member in members%}
   <div class="bio" style="display: flex; flex-direction: column; justify-content: center;">
     <img class='fakeimg square'  src="{{member.image}}">
@@ -45,5 +57,6 @@
   </div>
   {% endfor %}
 </div>
+
 
 {% endblock %}
