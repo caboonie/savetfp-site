@@ -1,0 +1,115 @@
+{%extends 'layout.html'%}
+
+
+{%block content %}
+<style type="text/css">
+  .row{
+    justify-content: space-around;
+  }
+</style>
+
+<!-- Header -->
+<div class="header">
+  <h1>SaveTFP Admin</h1>
+</div>
+
+
+<div class="row">
+  <div class="roundbox box_navy" style="min-width: 250px;">
+    <div class = "box_header bkgnd_navy">
+      Add New Event
+    </div>
+    <div class = "box_body">
+      <form action = "/addEvent" method = 'post' enctype="multipart/form-data">
+          <input type="text" name="name" placeholder="Event Name" required>
+          <input type="text" name="descrip" placeholder="Description" required>
+          Date:<input type="date" name="date" placeholder="Date" required>
+          Start Time:<input type="time" name="start" placeholder="Start Time" value="21:00:00" required>
+          End Time:<input type="time" name="end" placeholder="End Time" value="23:00:00" required>
+          Event picture:<input type="file" name="pic" value="Select">
+          <button  type="submit"> Add Event </button>
+      </form>
+    </div>
+  </div>
+  
+  <div class="roundbox box_navy" style="min-width: 250px;">
+    <div class = "box_header bkgnd_navy">
+      Current Events
+    </div>
+    <div class = "box_body" style=" min-width: 250px;">
+      <table style="width: 100%; overflow: scroll;">
+        <tr>
+          <th>Name</th>
+          <th>Dat</th>
+          <th>Start</th>
+          <th>End</th>
+          <th>Description</th>
+          <th>Photo</th>
+        </tr>
+        {% for event in events%}
+          <tr>
+            <td> {{event.name}} </td>
+            <td> {{event.start.month}}/{{event.start.day}} </td>
+            <td> {{event.start.hour}}:{{event.start.minute}} </td>
+            <td> {{event.end.hour}}:{{event.end.minute}} </td>
+            <td> {{event.desc}} </td>
+
+            <td> <img src="{{event.image}}" height="30px" width="30px"> </td>
+            <td> <a href="/removeEvent/{{event.id}}">X</a> </td>
+          </tr>
+        {%endfor%}
+      </table>
+    </div>
+  </div>
+
+  <div class="roundbox box_navy" style="min-width: 250px;">
+    <div class = "box_header bkgnd_navy">
+      Add Member
+    </div>
+    <div class = "box_body">
+      <form action = "/addMember" method = 'post' enctype="multipart/form-data">
+          <input type="text" name="name" placeholder="Name" required>
+          <input type="text" name="descrip" placeholder="Description" required>
+          Event picture:<input type="file" name="pic" value="Select">
+          <button  type="submit"> Add </button>
+      </form>
+    </div>
+  </div>
+  <div class="roundbox box_navy" style="min-width: 250px;">
+    <div class = "box_header bkgnd_navy">
+      Current Members
+    </div>
+    <div class = "box_body" style="min-width: 250px;">
+      <table style="width: 100%; overflow: scroll;">
+        <tr>
+          <th>Name</th>
+          <th>Description</th>
+          <th>Photo</th>
+        </tr>
+        {% for member in members%}
+          <tr>
+            <td> {{member.name}} </td>
+            <td> {{member.desc}} </td>
+            <td> <img src="{{member.image}}" height="30px" width="30px" </td>
+            <td> <a href="/removeMember/{{member.id}}">Remove</a> </td>
+          </tr>
+        {%endfor%}
+      </table>
+    </div>
+  </div>
+  <div class="roundbox box_navy" style="min-width: 250px;">
+    <div class = "box_header bkgnd_navy">
+      Add Image
+    </div>
+    <div class = "box_body">
+      <form action = "/addImage" method = 'post' enctype="multipart/form-data">
+          Event picture:<input type="file" name="pic" value="Select">
+          <button  type="submit"> Add </button>
+      </form>
+    </div>
+  </div>
+</div>
+
+
+
+{% endblock %}

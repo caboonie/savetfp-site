@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>SaveTFP Events</title>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" type="text/css" href="/static/style.css">
+<script type="text/javascript">
+	 $(document).ready(function() {
+    function square(){
+      setInterval(function(){
+        $('.top').css({'height':$('.top').width()/3+'px'})
+        $('.mid').css({'height':$('.mid').width()*.6+'px'})
+        $('.bot').css({'height':$('.bot').width()/1.5+'px'})
+        //console.log($('.square').width()+$('.square').css('padding')[+$('.square').css('border'))
+        $('.square').css({'height':($('.square').width()+30)+'px'})
+
+        if($(window).width()>600 && isSmall){
+
+          $('.navbar>a').css('display','block')
+          $('#navbutton').css('display','none')
+          isSmall=false;
+
+        }
+        else if($(window).width()<=600 && !isSmall){
+          $('.navbar>a').css('display','none')
+          $('#navbutton').css('display','block')
+          
+          isSmall=true;
+        }
+      }, 50);
+    };
+    if($(window).width()>600){
+      isSmall=false;
+    }
+    else{
+      isSmall=true;
+    }
+    square();
+
+
+
+  });
+  //add an event listener for when the screen changes size
+</script>
+</head>
+<body>
+
+<!-- Navigation Bar -->
+<div class="navbar">
+  <a href="/">Events</a>
+  <a href="/members">Members</a>
+  <a href="/faq">FAQ</a>
+  <a href="/contact">Contact</a>
+  <a href="/admin">Admin</a>
+
+  <a id="navbutton" onclick="if($('.navbar>a').css('display')=='none'){$('.navbar>a').css('display','block')}else{$('.navbar>a').css('display','none')}$(this).css('display','block')">=</a>
+</div>
+
+<!--Flash Messaging --> 
+{% with messages = get_flashed_messages() %}
+      {% if messages %}
+      <div class="alert alert-info alert-dismissible message" role="alert" style="position: absolute; top:60px;">
+        <button type="button" class="close" data-dismiss="alert" onclick="$(this).parent().css('display','none')"aria-label="Close" style="text-align: right"><span aria-hidden="true">&times;</span></button>
+
+          {% for message in messages %}
+            <strong> {{ message }} </strong><br>
+          {% endfor %}
+      </div>
+      {% endif %}
+{% endwith %} 
+
+
+{% block content %}
+{% endblock %}
+
+<!-- Footer -->
+<div class="footer">
+  <h2>savetfp@mit.edu</h2>
+  <a href="https://www.facebook.com/savetfpMIT/"><img src="https://cdn.freebiesupply.com/logos/large/2x/facebook-3-logo-png-transparent.png" width="30px" height="30px"></a>
+  <a href="https://www.instagram.com/savetfp/?hl=en"><img src="https://instagram-brand.com/wp-content/themes/ig-branding/assets/images/ig-logo-email.png" width="30px" height="30px"></a>
+  <a href="https://twitter.com/savetfp?lang=en"><img src="http://pngimg.com/uploads/twitter/twitter_PNG32.png" width="30px" height="30px"></a>
+  
+</div>
+
+</body>
+</html>

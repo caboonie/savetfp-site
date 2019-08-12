@@ -1,0 +1,23 @@
+{%extends 'layout.html'%}
+
+
+{%block content %}
+
+
+<!-- Header -->
+<div class="header">
+  <h1>SaveTFP Login</h1>
+</div>
+
+
+
+<!-- The flexible grid (content) -->
+<div class="row">
+  <form action="/login" method="post" style="margin:auto; width:200px">
+    <input type="text" name="username" placeholder="Username">
+    <input type="password" name="password" placeholder="Password">
+    <input type="submit" value="Login" name="" style="margin:auto; display: block;">
+  </form>
+</div>
+
+{% endblock %}

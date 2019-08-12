@@ -1,0 +1,49 @@
+{%extends 'layout.html'%}
+
+
+{%block content %}
+
+<style type="text/css">
+  .row{
+    justify-content: space-around;
+  }
+  .bio{
+    min-width: 200px;
+    width:25%;
+    padding: 10px;
+    text-align: center;
+    display: block;
+  }
+  
+  .fakeimg {
+    background-color: #aaa;
+    padding: 10px;
+    text-align: center;
+    float: left;
+    border-radius: 50%;
+    width: 80%;
+    margin: auto;
+  }
+</style>
+
+<!-- Header -->
+<div class="header">
+  <h1>SaveTFP Members</h1>
+</div>
+
+
+
+<!-- The flexible grid (content) -->
+<div class="row">
+  {% for member in members%}
+  <div class="bio" style="display: flex; flex-direction: column; justify-content: center;">
+    <img class='fakeimg square'  src="{{member.image}}">
+    <div style=" padding-top:10px;">
+      <h3>{{member.name}}</h3>
+      <p>{{member.desc}}</p>
+    </div>
+  </div>
+  {% endfor %}
+</div>
+
+{% endblock %}
