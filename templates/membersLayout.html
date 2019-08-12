@@ -26,6 +26,7 @@
     width: 80%;
     margin: auto;
     overflow: hidden;
+    border: solid 4px gray;
   }
 
 
@@ -49,7 +50,7 @@
 <div id="main">
   {% for member in members%}
   <div class="bio" style="display: flex; flex-direction: column; justify-content: center;">
-    <img class='fakeimg square'  src="{{member.image}}">
+    <div class='fakeimg square'   src="{{member.image}}" style="background-image: url('{{member.image}}'); background-position: 50% 50%; background-size: cover;"></div>
     <div style=" padding-top:10px;">
       <h3>{{member.name}}</h3>
       <p>{{member.desc}}</p>

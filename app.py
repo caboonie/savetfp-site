@@ -128,5 +128,13 @@ def addImage():
 	else:
 		return render_template('login.html')
 
+@app.route('/removeImage/<int:id>')
+def removeImage(id):
+	if "logged-in" in login_session and login_session["logged-in"]:
+		delete_image(id)
+		return redirect("/admin")
+	else:
+		return render_template('login.html')
+
 if __name__ == '__main__':
     app.run(debug=True)

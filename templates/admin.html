@@ -90,8 +90,8 @@
           <tr>
             <td> {{member.name}} </td>
             <td> {{member.desc}} </td>
-            <td> <img src="{{member.image}}" height="30px" width="30px" </td>
-            <td> <a href="/removeMember/{{member.id}}">Remove</a> </td>
+            <td> <img src="{{member.image}}" height="30px" width="30px"> </td>
+            <td> <a href="/removeMember/{{member.id}}">X</a> </td>
           </tr>
         {%endfor%}
       </table>
@@ -106,6 +106,22 @@
           Event picture:<input type="file" name="pic" value="Select">
           <button  type="submit"> Add </button>
       </form>
+    </div>
+  </div>
+
+  <div class="roundbox box_navy" style="min-width: 250px;">
+    <div class = "box_header bkgnd_navy">
+      Current Images
+    </div>
+    <div class = "box_body" style="min-width: 250px;">
+      <div style="display: flex;">
+        {% for image in imgs%}
+          <div style="display: flex; flex-direction: column; justify-content: space-around;">
+            <img src="{{image.filename}}" height="50px" width="50px">
+            <a href="/removeImage/{{image.id}}" style="width: 100%; text-align: center;">X</a> 
+          </div>
+        {%endfor%}
+      </div>
     </div>
   </div>
 </div>

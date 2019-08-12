@@ -63,6 +63,11 @@ def add_image(picfile):
 	session.add(image)
 	session.commit()
 
+def delete_image(id):
+	session.query(Image).filter_by(
+		id=id).delete()
+	session.commit()
+
 
 def add_member(title, descrip, picfile):
 	"""
