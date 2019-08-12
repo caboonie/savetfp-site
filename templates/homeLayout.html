@@ -19,24 +19,84 @@
           <div class="flip-card-inner">
             <div class="flip-card-front">
               
-                <img width="100%" src="{{imgs[(i*6)%(imgs|length)].filename}}">
+                <img width="100%" src="{{imgs[(i*12)%(imgs|length)].filename}}">
             </div>
             <div class="flip-card-back">
-                <img width="100%" src="{{imgs[(i*6+1)%(imgs|length)].filename}}">
+                <img width="100%" src="{{imgs[(i*12+1)%(imgs|length)].filename}}">
             </div>
           </div>
         </div>
       </div>
       
-      <div class="fakeimg" style="width:50%; height: 100%">Image</div>
+      <div class="fakeimg" style="width:50%; height: 100%">
+        <div class="flip-card">
+          <div class="flip-card-inner">
+            <div class="flip-card-front">
+              
+                <img width="100%" src="{{imgs[(i*12+2)%(imgs|length)].filename}}">
+            </div>
+            <div class="flip-card-back">
+                <img width="100%" src="{{imgs[(i*12+3)%(imgs|length)].filename}}">
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
     <div class="mid" style="height:200px; flex:100%;">
-      <div class="fakeimg" style="width:70%; height: 100%">Image</div>
-      <div class="fakeimg" style="width:30%; height: 50%">Image</div>
-      <div class="fakeimg" style="width:30%; height: 50%;">Image</div>
+      <div class="fakeimg" style="width:70%; height: 100%">
+        <div class="flip-card">
+          <div class="flip-card-inner">
+            <div class="flip-card-front">
+              
+                <img width="100%" src="{{imgs[(i*12+4)%(imgs|length)].filename}}">
+            </div>
+            <div class="flip-card-back">
+                <img width="100%" src="{{imgs[(i*12+5)%(imgs|length)].filename}}">
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="fakeimg" style="width:30%; height: 50%">
+        <div class="flip-card">
+          <div class="flip-card-inner">
+            <div class="flip-card-front">
+              
+                <img width="100%" src="{{imgs[(i*12+6)%(imgs|length)].filename}}">
+            </div>
+            <div class="flip-card-back">
+                <img width="100%" src="{{imgs[(i*12+7)%(imgs|length)].filename}}">
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="fakeimg" style="width:30%; height: 50%;">
+        <div class="flip-card">
+          <div class="flip-card-inner">
+            <div class="flip-card-front">
+              
+                <img width="100%" src="{{imgs[(i*12+8)%(imgs|length)].filename}}">
+            </div>
+            <div class="flip-card-back">
+                <img width="100%" src="{{imgs[(i*12+9)%(imgs|length)].filename}}">
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
     <div class="bot" style="height:140px; flex: 100%">
-      <div class="fakeimg" style="width:100%; height: 100%">Image</div>
+      <div class="fakeimg" style="width:100%; height: 100%">
+        <div class="flip-card">
+          <div class="flip-card-inner">
+            <div class="flip-card-front">
+              
+                <img width="100%" src="{{imgs[(i*12+10)%(imgs|length)].filename}}">
+            </div>
+            <div class="flip-card-back">
+                <img width="100%" src="{{imgs[(i*12+11)%(imgs|length)].filename}}">
+            </div>
+          </div>
+        </div>
+      </div>
 
     </div>
     {% endfor %}
